@@ -9,21 +9,19 @@
 <body>
 <pre>
 <?php
-require 'db.inc';
-print "name is {$_GET["name"]}\n";
-$a = $_GET["name"];
 // (1) Open the database connection
-   $connection = mysql_connect("localhost","nang4839","*********");
+   $connection = mysql_connect("localhost","nang4839","700984839");
 
    // (2) Select the winestore database
    mysql_select_db("nang4839", $connection);
 
    // (3) Run the query on the winestore through the connection
-   $result = mysql_query ("SELECT * FROM
-                          names where id =$a" , $connection);
+   $result = mysql_query ("SELECT * 
+                           FROM Crib", $connection);
 
    // (4) While there are still rows in the result set, fetch the current
    // row into the array $row
+   print "results are:\n";
    while ($row = mysql_fetch_array($result, MYSQL_NUM))
    {
      // (5) Print out each element in $row, that is, print the values of
