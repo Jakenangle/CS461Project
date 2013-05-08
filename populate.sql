@@ -39,3 +39,17 @@ INSERT INTO Professor_has_Class (`Class_idClass`, `Professor_idProfessor`)
 	FROM Professor JOIN Class
 	WHERE 	Professor.name = 'Professor Awesome' AND
 			Class.name = 'Database Systems';
+
+INSERT INTO TagList (tagName) VALUE ('Useless');
+INSERT INTO TagList (tagName) VALUE ('Sample Test');
+INSERT INTO TagList (tagName) VALUE ('Sample Paper');
+INSERT INTO TagList (tagName) VALUE ('Why or why did I think this was a good idea?');
+
+INSERT INTO Crib (name, filePath) VALUES ('Test Crib Name', 'path/to/test/crib');
+INSERT INTO Crib (name, filePath) VALUES ('Conspiracy Crib', 'path/to/Conspiracy/crib');
+INSERT INTO Crib (name, filePath) VALUES ('Langauge Crib', 'path/to/Language/crib');
+INSERT INTO Crib (name, filePath) VALUES ('Testing Crib', 'path/to/Testing/crib');
+INSERT INTO Crib (name, filePath) VALUES ('Demo Test', 'path/to/Demo Test/crib');
+INSERT INTO Crib (name, filePath) VALUES ('Demo Language', 'path/to/Demo Language/crib');
+INSERT INTO Crib (name, filePath) VALUES ('This is not a crib conspiracy', 'path/to/not a crib conspiracy/crib');
+
