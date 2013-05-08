@@ -2,24 +2,28 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `nang4839` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `nang4839` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Professor`
+-- Table `nang4839`.`Professor`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Professor` (
-  `idProfessor` INT NOT NULL ,
+DROP TABLE IF EXISTS `nang4839`.`Professor` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`Professor` (
+  `idProfessor` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   PRIMARY KEY (`idProfessor`) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Class`
+-- Table `nang4839`.`Class`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Class` (
-  `idClass` INT NOT NULL ,
+DROP TABLE IF EXISTS `nang4839`.`Class` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`Class` (
+  `idClass` INT NOT NULL AUTO_INCREMENT ,
   `letterCode` VARCHAR(45) NULL ,
   `number` VARCHAR(45) NULL ,
   `name` VARCHAR(45) NULL ,
@@ -28,10 +32,12 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Crib`
+-- Table `nang4839`.`Crib`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Crib` (
-  `idCrib` INT NOT NULL ,
+DROP TABLE IF EXISTS `nang4839`.`Crib` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`Crib` (
+  `idCrib` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NULL ,
   `filePath` VARCHAR(256) NOT NULL ,
   `Professor_idProfessor` INT NULL ,
@@ -41,31 +47,35 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Crib` (
   INDEX `fk_Crib_Class1` (`Class_idClass` ASC) ,
   CONSTRAINT `fk_Crib_Professor1`
     FOREIGN KEY (`Professor_idProfessor` )
-    REFERENCES `mydb`.`Professor` (`idProfessor` )
+    REFERENCES `nang4839`.`Professor` (`idProfessor` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Crib_Class1`
     FOREIGN KEY (`Class_idClass` )
-    REFERENCES `mydb`.`Class` (`idClass` )
+    REFERENCES `nang4839`.`Class` (`idClass` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`TagList`
+-- Table `nang4839`.`TagList`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`TagList` (
-  `idTagList` INT NOT NULL ,
+DROP TABLE IF EXISTS `nang4839`.`TagList` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`TagList` (
+  `idTagList` INT NOT NULL AUTO_INCREMENT ,
   `tagName` VARCHAR(45) NULL ,
   PRIMARY KEY (`idTagList`) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Crib_has_Tag`
+-- Table `nang4839`.`Crib_has_Tag`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Crib_has_Tag` (
+DROP TABLE IF EXISTS `nang4839`.`Crib_has_Tag` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`Crib_has_Tag` (
   `Crib_idCrib` INT NOT NULL ,
   `TagList_idTagList` INT NOT NULL ,
   PRIMARY KEY (`Crib_idCrib`, `TagList_idTagList`) ,
@@ -73,21 +83,23 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Crib_has_Tag` (
   INDEX `fk_Crib_has_TagList_Crib` (`Crib_idCrib` ASC) ,
   CONSTRAINT `fk_Crib_has_TagList_Crib`
     FOREIGN KEY (`Crib_idCrib` )
-    REFERENCES `mydb`.`Crib` (`idCrib` )
+    REFERENCES `nang4839`.`Crib` (`idCrib` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Crib_has_TagList_TagList1`
     FOREIGN KEY (`TagList_idTagList` )
-    REFERENCES `mydb`.`TagList` (`idTagList` )
+    REFERENCES `nang4839`.`TagList` (`idTagList` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Professor_has_Class`
+-- Table `nang4839`.`Professor_has_Class`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `mydb`.`Professor_has_Class` (
+DROP TABLE IF EXISTS `nang4839`.`Professor_has_Class` ;
+
+CREATE  TABLE IF NOT EXISTS `nang4839`.`Professor_has_Class` (
   `Professor_idProfessor` INT NOT NULL ,
   `Class_idClass` INT NOT NULL ,
   PRIMARY KEY (`Professor_idProfessor`, `Class_idClass`) ,
@@ -95,12 +107,12 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`Professor_has_Class` (
   INDEX `fk_Professor_has_Class_Professor1` (`Professor_idProfessor` ASC) ,
   CONSTRAINT `fk_Professor_has_Class_Professor1`
     FOREIGN KEY (`Professor_idProfessor` )
-    REFERENCES `mydb`.`Professor` (`idProfessor` )
+    REFERENCES `nang4839`.`Professor` (`idProfessor` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Professor_has_Class_Class1`
     FOREIGN KEY (`Class_idClass` )
-    REFERENCES `mydb`.`Class` (`idClass` )
+    REFERENCES `nang4839`.`Class` (`idClass` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
