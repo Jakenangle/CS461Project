@@ -28,37 +28,57 @@
         print "\n";
       }
       ?>
-      <input type="submit" value="Upload">
-    </form>
-  ------------------------------------
-    <p>
-      <form name="input" action="results.php" method="get">
-        Directory Name: <input type="text" name="Directory.name"><br>
-        Creator Name: <input type="text" name="creator"><br>
-        Event Name: <input type="text" name="eventName"><br>
-        Date: <input type="date" name = "eventDate"><br>
-        <select name="keyword">
-          <option value=0></option>a
-          <?php
-          $connection = mysql_connect("localhost","nang4839","700984839");
-          mysql_select_db("nang4839", $connection);
-          $result = mysql_query ("SELECT * 
-           FROM Keyword", $connection);
+      </select><br>
+      <select name="Class">
+        <option value=0></option>
+        <?php
+        $connection = mysql_connect("localhost","nang4839","700984839");
+        mysql_select_db("nang4839", $connection);
+        $result = mysql_query ("SELECT * 
+          FROM Class", $connection);
 
-          while ($row = mysql_fetch_array($result, MYSQL_NUM))
-          {
-            print " <option value=";
-            print $row[0];
-            print ">";
-            print $row[1];
-            print "</option>";
-            print "\n";
-          }
-          ?>
+        while ($row = mysql_fetch_array($result, MYSQL_NUM))
+        {
+          print " <option value=";
+          print $row[0];
+          print ">";
+          print $row[1] . $row[2] . '-' . $row[3];
+          print "</option>";
+          print "\n";
+        }
+        ?>
         </select><br>
-        <input type="submit" value="Submit">
-    </form>
-  </p>
-  </body>
+        <input type="submit" value="Upload">
+      </form>
+      ------------------------------------
+      <p>
+        <form name="input" action="results.php" method="get">
+          Directory Name: <input type="text" name="Directory.name"><br>
+          Creator Name: <input type="text" name="creator"><br>
+          Event Name: <input type="text" name="eventName"><br>
+          Date: <input type="date" name = "eventDate"><br>
+          <select name="keyword">
+            <option value=0></option>a
+            <?php
+            $connection = mysql_connect("localhost","nang4839","700984839");
+            mysql_select_db("nang4839", $connection);
+            $result = mysql_query ("SELECT * 
+             FROM Keyword", $connection);
 
-  </html>
+            while ($row = mysql_fetch_array($result, MYSQL_NUM))
+            {
+              print " <option value=";
+              print $row[0];
+              print ">";
+              print $row[1];
+              print "</option>";
+              print "\n";
+            }
+            ?>
+          </select><br>
+          <input type="submit" value="Submit">
+        </form>
+      </p>
+    </body>
+
+    </html>
