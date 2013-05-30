@@ -9,10 +9,27 @@
 
 <body>
   <form name="input" action="upload.php" method="post" enctype="multipart/form-data">
-      Directory Name: <input type="text" name="name"><br>
-      Image: <input type="file" name="file" id="file"><br>
+    Crib: <input type="file" name="file" id="file"><br>
+    <select name="Professor">
+      <option value=0></option>a
+      <?php
+      $connection = mysql_connect("localhost","nang4839","700984839");
+      mysql_select_db("nang4839", $connection);
+      $result = mysql_query ("SELECT * 
+        FROM Professor", $connection);
+
+      while ($row = mysql_fetch_array($result, MYSQL_NUM))
+      {
+        print " <option value=";
+        print $row[0];
+        print ">";
+        print $row[1];
+        print "</option>";
+        print "\n";
+      }
+      ?>
       <input type="submit" value="Upload">
-  </form>
+    </form>
   ------------------------------------
     <p>
       <form name="input" action="results.php" method="get">
