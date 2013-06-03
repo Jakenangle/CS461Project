@@ -28,8 +28,10 @@ else
         $connection = mysql_connect("localhost","nang4839","700984839");
         mysql_select_db("nang4839", $connection);
        
+       echo "\nINSERT INTO Crib (name, filePath, Professor_idProfessor, Class_idClass) 
+            VALUES (\"" . $_FILES["file"]["name"] . "\", \"" . $_FILES["file"]["name"] . "\"," . $_POST["Professor"] . "," . $_POST["Class"] . ")";
         $result = mysql_query ("INSERT INTO Crib (name, filePath, Professor_idProfessor, Class_idClass) 
-            VALUES (\"" . $_FILES["file"]["name"] . "\", \"" . $_POST["name"] . "\")", $connection);
+            VALUES (\"" . $_FILES["file"]["name"] . "\", \"" . $_FILES["file"]["name"] . "\"," . $_POST["Professor"] . "," . $_POST["Class"] . ")", $connection);
     }
 }
 ?> 
