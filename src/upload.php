@@ -18,14 +18,18 @@ else
     }
     else
     {
-        move_uploaded_file($_FILES["file"]["tmp_name"],
-            "upload/" . $_FILES["file"]["name"]);
-        echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+        if (move_uploaded_file($_FILES["file"]["tmp_name"],
+            "upload/" . $_FILES["file"]["name"])){
+            echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+        }else{
+            echo "Failed to store file";
+        }
 
         $connection = mysql_connect("localhost","nang4839","700984839");
         mysql_select_db("nang4839", $connection);
        
-        $result = mysql_query ("INSERT INTO Image (name, Directory_name) VALUES (\"" . $_FILES["file"]["name"] . "\", \"" . $_POST["name"] . "\")", $connection);
+        $result = mysql_query ("INSERT INTO Crib (name, filePath, Professor_idProfessor, Class_idClass) 
+            VALUES (\"" . $_FILES["file"]["name"] . "\", \"" . $_POST["name"] . "\")", $connection);
     }
 }
 ?> 
