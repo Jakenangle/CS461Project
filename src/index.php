@@ -8,7 +8,9 @@
 </head>
 
 <body>
-  <h2>Upload</h2>
+  <h2>Welcome to the KU CRIB Database!</h2>
+  ------------------------------------
+  <h3>Upload</h3>
   <form name="input" action="upload.php" method="post" enctype="multipart/form-data">
     Crib: <input type="file" name="file" id="file"><br>
     <select name="Professor">
@@ -51,8 +53,9 @@
         </select><br>
         <input type="submit" value="Upload">
       </form>
+      <br>
       ------------------------------------
-      <h2>Search</h2>
+      <h3>Search</h3>
       <p>
       <form name="input" action="results.php" method="get">
       <select name="Professor_idProfessor">
