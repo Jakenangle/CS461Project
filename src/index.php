@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h2>Upload<\h2>
+  <h2>Upload</h2>
   <form name="input" action="upload.php" method="post" enctype="multipart/form-data">
     Crib: <input type="file" name="file" id="file"><br>
     <select name="Professor">
@@ -52,7 +52,7 @@
         <input type="submit" value="Upload">
       </form>
       ------------------------------------
-      <h2>Search<\h2>
+      <h2>Search</h2>
       <p>
       <form name="input" action="results.php" method="get">
       <select name="Professor_idProfessor">
