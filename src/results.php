@@ -27,7 +27,7 @@
    {
       $url = $row[0];
       
-      print "<a href= upload\\" . str_replace(' ', '%20', $url) . ">" . $url . "<br>";
+      print "<a href= upload/" . str_replace(' ', '%20', $url) . ">" . $url . "<br>";
    }
     ?>
   </p>
