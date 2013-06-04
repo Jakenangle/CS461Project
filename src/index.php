@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-  <title>Stuffy Stuff Stuff</title>
+  <title>KU CRIB Database</title>
 </head>
 
 <body>
