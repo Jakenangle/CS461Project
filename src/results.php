@@ -20,7 +20,6 @@
     }
     $query .= implode(' AND ', $conditions) . ';';
     $connection = mysql_connect("localhost","nang4839","700984839");
-    echo $query;
     mysql_select_db("nang4839", $connection);
     $result = mysql_query ($query , $connection);
 
@@ -28,7 +27,6 @@
    {
       $url = $row[0];
       
-      print $dir . ".<br>";
       print "<a href= upload\\" . str_replace(' ', '%20', $url) . ">" . $url . "<br>";
    }
     ?>
